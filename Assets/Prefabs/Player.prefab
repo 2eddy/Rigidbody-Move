@@ -804,7 +804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2849492493501420345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.185, y: 1.45, z: 1.1}
+  m_LocalPosition: {x: 0.185, y: 1.45, z: 1.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2306361076840073895}
@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 2849492493587354294}
   - component: {fileID: 2849492493587354297}
   m_Layer: 0
-  m_Name: Line
+  m_Name: LineOfSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,7 +835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2849492493587354295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.185, y: 1.45, z: 1.1}
+  m_LocalPosition: {x: 0.185, y: 1.45, z: 1.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2306361076840073895}
@@ -860,7 +860,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: beae5eadb3c99434aa02b01c9a6b90a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -904,7 +904,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -1044,7 +1044,8 @@ MonoBehaviour:
   Bullet: {fileID: 1098717522296985621, guid: 8751a14bea2d2bf46a943da2fe3bfdf0, type: 3}
   Muzzle: {fileID: 2849492493501420344}
   AimHeight: 1.45
-  TurnSpeed: 30
+  MoveSpeed: 4.5
+  JumpForce: 300
 --- !u!1 &3146174511109590812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,7 +2654,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rifle 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3569353815409751570, guid: 7444562fe5798e846a4045a93e123308, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7444562fe5798e846a4045a93e123308, type: 3}
 --- !u!4 &7313321272528736357 stripped
 Transform:

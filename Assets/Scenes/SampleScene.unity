@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 617748319}
   - component: {fileID: 617748318}
   - component: {fileID: 617748317}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crate (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 1044546325}
   - component: {fileID: 1044546324}
   - component: {fileID: 1044546323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +672,7 @@ GameObject:
   - component: {fileID: 1214676033}
   - component: {fileID: 1214676032}
   - component: {fileID: 1214676031}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crate (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 1296923019}
   - component: {fileID: 1296923018}
   - component: {fileID: 1296923017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crate (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,7 +1015,7 @@ GameObject:
   - component: {fileID: 1609687681}
   - component: {fileID: 1609687680}
   - component: {fileID: 1609687679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crate (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1133,7 +1133,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1639144692
 MonoBehaviour:
@@ -1155,9 +1155,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Keyboard WASD to move
+  m_text: 'WASD to move
 
-    Left mouse to shoot'
+    Left mouse to shoot
+
+    Space to jump'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1184,8 +1186,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1313,7 +1315,7 @@ GameObject:
   - component: {fileID: 2076685921}
   - component: {fileID: 2076685920}
   - component: {fileID: 2076685919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1456,10 +1458,6 @@ PrefabInstance:
     - target: {fileID: 3119313949492203549, guid: dd60f48ae094c5341bbc002c0f829dd2, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8566405019571245277, guid: dd60f48ae094c5341bbc002c0f829dd2, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd60f48ae094c5341bbc002c0f829dd2, type: 3}
