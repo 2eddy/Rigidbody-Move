@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
     public Transform Muzzle;
 
     public float AimHeight = 1.45f;
-    public float MoveSpeed = 4.5f;
     public float AirSpeed = 2.5f;
     public float JumpForce = 50f;
 
@@ -23,9 +22,10 @@ public class Player : MonoBehaviour
     int _jumpLoopId;
 
     Plane _plane;
-    Vector3 _moveInput;
-    Vector3 _currentLocal;
-    Vector3 _lookDirection;
+
+    Vector3 _move;
+    Vector3 _currentMove;
+    Vector3 _look;
 
     bool _grounded;
     int _groundMask;
@@ -53,32 +53,32 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        HandleTurnInput();
+        HandleLookInput();
         HandleMoveInput();
         HandleShootInput();
         HandleJumpInput();
     }
 
-    private void HandleTurnInput()
+    private void HandleLookInput()
     {
         Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
         float enter;
 
         if (_plane.Raycast(ray, out enter))
         {
-            Vector3 hitPoint = ray.GetPoint(enter);
-            _lookDirection = hitPoint - new Vector3(transform.position.x, AimHeight, transform.position.z);
+            Vector3 hitPosition = ray.GetPoint(enter);
+            _look = hitPosition - new Vector3(transform.position.x, AimHeight, transform.position.z);
         }
     }
 
     private void HandleMoveInput()
     {
-        _moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
-        Vector3 local = transform.InverseTransformDirection(_moveInput);
-        _currentLocal = Vector3.MoveTowards(_currentLocal, local, 5f * Time.deltaTime);
+        _move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
+        _currentMove = Vector3.MoveTowards(_currentMove, _move, 5f * Time.deltaTime);
+        Vector3 localMove = transform.InverseTransformDirection(_currentMove);
 
-        _animator.SetFloat(_velocityXId, _currentLocal.x);
-        _animator.SetFloat(_velocityZId, _currentLocal.z);
+        _animator.SetFloat(_velocityXId, localMove.x);
+        _animator.SetFloat(_velocityZId, localMove.z);
     }
 
     private void HandleShootInput()
@@ -99,9 +99,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_lookDirection != Vector3.zero)
+        if (_look != Vector3.zero)
         {
-            Quaternion lookRotation = Quaternion.LookRotation(_lookDirection);
+            Quaternion lookRotation = Quaternion.LookRotation(_look);
             _rigidbody.rotation = lookRotation;
         }
 
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
 
         if (_animator.GetBool(_jumpLoopId))
         {
-            _rigidbody.MovePosition(_rigidbody.position + _moveInput * AirSpeed * Time.fixedDeltaTime);
+            _rigidbody.MovePosition(_rigidbody.position + _move * AirSpeed * Time.fixedDeltaTime);
         }
     }
 
